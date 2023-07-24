@@ -1,14 +1,14 @@
 databases:
-  - name: insidertrading
+  - name: insider
     databaseName: insidertrading
     user: insidertrading
 
 services:
   - type: web
-    name: insidertrading
+    name: insider
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn insidertrading.wsgi:application"
+    startCommand: "gunicorn insider.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
