@@ -1,18 +1,18 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: insidertrading
+    databaseName: insidertrading
+    user: insidertrading
 
 services:
   - type: web
-    name: mysite
+    name: insidertrading
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn mysite.wsgi:application"
+    startCommand: "gunicorn insidertrading.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: insidertrading
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
